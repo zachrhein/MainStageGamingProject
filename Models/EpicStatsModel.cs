@@ -12,10 +12,10 @@ namespace MainStageGamingProject.Models
     }
     public class EpicStatsModel
     {
-        public List<EpicStatsModel> Global_Stats { get; set; }
-        public string Solo { get; set; }
-        public string Duo { get; set; }
-        public string Squad { get; set; }
+        public List<Object> Global_Stats { get; set; }
+        public List<Object> Solo { get; set; }
+        public List<Object> Duo { get; set; }
+        public List<Object> Squad { get; set; }
         public string PlaceTop1 { get; set; }
         public string Kd { get; set; }
         public string WinRate { get; set; }
