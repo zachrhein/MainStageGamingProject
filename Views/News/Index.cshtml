@@ -1,0 +1,7 @@
+﻿
+@foreach(var news in ViewBag.news)
+{
+    <h1>@news.title</h1>
+    <p>@news.body</p>
+    <img style="max-width: 25%; height: auto;" src="@news.image"/>
+}

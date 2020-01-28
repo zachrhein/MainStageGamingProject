@@ -1,0 +1,22 @@
+﻿@foreach (var stats in ViewBag.statistics)
+{
+    <h3>@stats.Solo.PlaceTop1</h3>
+    <p>@stats.Solo.Kd</p>
+    <p>@stats.Solo.WinRate</p>
+    <p>@stats.Solo.Kills</p>
+    <p>@stats.Solo.MatchesPlayed</p>
+    <p>@stats.Solo.Score</p>
+}
+
+
+        @*public List<Object>
+    Global_Stats { get; set; }
+    public string Solo { get; set; }
+    public string Duo { get; set; }
+    public string Squad { get; set; }
+    public string PlaceTop1 { get; set; }
+    public string Kd { get; set; }
+    public string WinRate { get; set; }
+    public string Kills { get; set; }
+    public string MatchesPlayed { get; set; }
+    public string Score { get; set; }*@
