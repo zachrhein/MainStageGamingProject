@@ -12,9 +12,8 @@ namespace MainStageGamingProject.ApiModels
     public class StatsProcessor
     {
 
-        //what will need to be passed into LoadStats next is the ID of the user to load stats
         // Get player stats
-        public async Task<EpicStatsModel> LoadStats()
+        public async Task<RootObject> LoadStats()
             //returning 0 right now, need to pass a string as a parameter to convert username to their user id to check their stats.
         {
             HttpClient httpClient = new HttpClient();
@@ -28,16 +27,15 @@ namespace MainStageGamingProject.ApiModels
                 {
                 
                 HttpResponseMessage response = await httpClient.GetAsync(url);
-                EpicStatsModel stats = await response.Content.ReadAsAsync<EpicStatsModel>();
+                //EpicStatsModel stats = await response.Content.ReadAsAsync<EpicStatsModel>();
                 //response.Content = json
-                //EpicStatsModel stats = JsonConvert.DeserializeObject<EpicStatsModel>(json);
-
+                RootObject stats = JsonConvert.DeserializeObject<RootObject>(response.Content);
 
                 return stats;
                 }
                 catch (HttpRequestException)
                 {
-                return new EpicStatsModel();
+                return new RootObject();
                 }          
         }  
 
