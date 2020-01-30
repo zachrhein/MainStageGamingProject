@@ -30,11 +30,11 @@ namespace MainStageGamingProject.Controllers
 
         public async Task<IActionResult> Stats()
         {
-            RootObject epicStatsModel = await ShowStats();
+            EpicStatsModel epicStatsModel = await ShowStats();
             ViewBag.statistics = epicStatsModel.Global_Stats;
             return View();
         }
-        public async Task<RootObject> ShowStats()
+        public async Task<EpicStatsModel> ShowStats()
         {
             StatsProcessor statsProcessor = new StatsProcessor();
 

@@ -13,11 +13,11 @@ namespace MainStageGamingProject.ApiModels
     {
 
         // Get player stats
-        public async Task<RootObject> LoadStats()
+        public async Task<EpicStatsModel> LoadStats()
             //returning 0 right now, need to pass a string as a parameter to convert username to their user id to check their stats.
         {
             HttpClient httpClient = new HttpClient();
-            FindUser findUser = new FindUser("Ninja");
+            FindUser findUser = new FindUser("BustaRhein");
             EpicNameModel epicNameModel = await findUser.FindUserID();
 
             string url = $"https://fortniteapi.io/stats?account={epicNameModel.Account_id}";
@@ -27,15 +27,15 @@ namespace MainStageGamingProject.ApiModels
                 {
                 
                 HttpResponseMessage response = await httpClient.GetAsync(url);
-                //EpicStatsModel stats = await response.Content.ReadAsAsync<EpicStatsModel>();
+                EpicStatsModel stats = await response.Content.ReadAsAsync<EpicStatsModel>();
                 //response.Content = json
-                RootObject stats = JsonConvert.DeserializeObject<RootObject>(response.Content);
+                //RootObject stats = //JsonConvert.DeserializeObject<RootObject>(response.Content);
 
                 return stats;
                 }
                 catch (HttpRequestException)
                 {
-                return new RootObject();
+                return new EpicStatsModel();
                 }          
         }  
 
