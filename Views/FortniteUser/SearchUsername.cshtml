@@ -11,37 +11,94 @@
 
 @if (@ViewBag.statistics != null)
 {
-    <h1>Career Stats For @ViewBag.name</h1>
-    <p>Solo Wins: @ViewBag.statistics.solo.placetop1</p>
-    <p>Solo KD: @ViewBag.statistics.solo.kd</p>
-    <p>Solo Win Percentage: @ViewBag.statistics.solo.winrate</p>
-    <p>Solo Kills: @ViewBag.statistics.solo.kills</p>
-    <p>Total Solo Matches Played: @ViewBag.statistics.solo.matchesplayed</p>
-    <p>Total Solo Score: @ViewBag.statistics.solo.score</p>
-}
-else
-{
-    <h1>@ViewBag.name</h1>
-}
+<h1>Career Stats For @ViewBag.name</h1>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-active">
+            <th>Solo wins</th>
+            <th>Solo KD</th>
+            <th>Solo Win Percentage</th>
+            <th>Solo Kills</th>
+            <th>Solo Matches Played</th>
+            <th>Solo Score</th>
+        </tr>
+        <tbody>
+            <tr>
+                <td>@ViewBag.statistics.solo.placetop1</td>
+                <td>@ViewBag.statistics.solo.kd</td>
+                <td>@ViewBag.statistics.solo.winrate</td>
+                <td>@ViewBag.statistics.solo.kills</td>
+                <td>@ViewBag.statistics.solo.matchesplayed</td>
+                <td>@ViewBag.statistics.solo.score</td>
+            </tr>
+        </tbody>
+</table>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-active">
+            <th>Duo wins</th>
+            <th>Duo KD</th>
+            <th>Duo Win Percentage</th>
+            <th>Duo Kills</th>
+            <th>Duo Matches Played</th>
+            <th>Duo Score</th>
+        </tr>
+    <tbody>
+        <tr>
+            <td>@ViewBag.statistics.duo.placetop1</td>
+            <td>@ViewBag.statistics.duo.kd</td>
+            <td>@ViewBag.statistics.duo.winrate</td>
+            <td>@ViewBag.statistics.duo.kills</td>
+            <td>@ViewBag.statistics.duo.matchesplayed</td>
+            <td>@ViewBag.statistics.duo.score</td>
+        </tr>
+    </tbody>
+</table>
+<table class="table table-hover">
+    <thead>
+        <tr class="table-active">
+            <th>Squad wins</th>
+            <th>Squad KD</th>
+            <th>Squad Win Percentage</th>
+            <th>Squad Kills</th>
+            <th>Squad Matches Played</th>
+            <th>Squad Score</th>
+        </tr>
+    <tbody>
+        <tr>
+            <td>@ViewBag.statistics.squad.placetop1</td>
+            <td>@ViewBag.statistics.squad.kd</td>
+            <td>@ViewBag.statistics.squad.winrate</td>
+            <td>@ViewBag.statistics.squad.kills</td>
+            <td>@ViewBag.statistics.squad.matchesplayed</td>
+            <td>@ViewBag.statistics.squad.score</td>
+        </tr>
+    </tbody>
+</table>
+        }
+        else
+        {
+        <h1>@ViewBag.name</h1>
+        }
 
 
 
 
-@*public List<Object>
-    Global_Stats { get; set; }
-    public string Solo { get; set; }
-    public string Duo { get; set; }
-    public string Squad { get; set; }
-    public string PlaceTop1 { get; set; }
-    public string Kd { get; set; }
-    public string WinRate { get; set; }
-    public string Kills { get; set; }
-    public string MatchesPlayed { get; set; }
-    public string Score { get; set; }
+        @*public List<Object>
+            Global_Stats { get; set; }
+            public string Solo { get; set; }
+            public string Duo { get; set; }
+            public string Squad { get; set; }
+            public string PlaceTop1 { get; set; }
+            public string Kd { get; set; }
+            public string WinRate { get; set; }
+            public string Kills { get; set; }
+            public string MatchesPlayed { get; set; }
+            public string Score { get; set; }
 
-                <h3>@stats.Solo.PlaceTop1</h3>
-    <p>@stats.Solo.Kd</p>
-    <p>@stats.Solo.WinRate</p>
-    <p>@stats.Solo.Kills</p>
-    <p>@stats.Solo.MatchesPlayed</p>
-    <p>@stats.Solo.Score</p>*@
+                        <h3>@stats.Solo.PlaceTop1</h3>
+            <p>@stats.Solo.Kd</p>
+            <p>@stats.Solo.WinRate</p>
+            <p>@stats.Solo.Kills</p>
+            <p>@stats.Solo.MatchesPlayed</p>
+            <p>@stats.Solo.Score</p>*@
