@@ -1,0 +1,47 @@
+﻿@model MainStageGamingProject.ViewModels.SearchViewModel
+
+<form asp-controller="FortniteUser" asp-action="SearchUsername" method="post">
+    <div class="form-group">
+        <label asp-for="Username"></label>
+        <input class="form-control" asp-for="Username" />
+        <span asp-validation-for="Username"></span>
+    </div>
+    <input type="submit" value="See Stats" />
+</form>
+
+@if (@ViewBag.statistics != null)
+{
+    <h1>Career Stats For @ViewBag.name</h1>
+    <p>Solo Wins: @ViewBag.statistics.solo.placetop1</p>
+    <p>Solo KD: @ViewBag.statistics.solo.kd</p>
+    <p>Solo Win Percentage: @ViewBag.statistics.solo.winrate</p>
+    <p>Solo Kills: @ViewBag.statistics.solo.kills</p>
+    <p>Total Solo Matches Played: @ViewBag.statistics.solo.matchesplayed</p>
+    <p>Total Solo Score: @ViewBag.statistics.solo.score</p>
+}
+else
+{
+    <h1>@ViewBag.name</h1>
+}
+
+
+
+
+@*public List<Object>
+    Global_Stats { get; set; }
+    public string Solo { get; set; }
+    public string Duo { get; set; }
+    public string Squad { get; set; }
+    public string PlaceTop1 { get; set; }
+    public string Kd { get; set; }
+    public string WinRate { get; set; }
+    public string Kills { get; set; }
+    public string MatchesPlayed { get; set; }
+    public string Score { get; set; }
+
+                <h3>@stats.Solo.PlaceTop1</h3>
+    <p>@stats.Solo.Kd</p>
+    <p>@stats.Solo.WinRate</p>
+    <p>@stats.Solo.Kills</p>
+    <p>@stats.Solo.MatchesPlayed</p>
+    <p>@stats.Solo.Score</p>*@

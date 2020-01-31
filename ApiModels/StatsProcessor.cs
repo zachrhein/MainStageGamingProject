@@ -13,13 +13,10 @@ namespace MainStageGamingProject.ApiModels
     {
 
         // Get player stats
-        public async Task<EpicStatsModel> LoadStats()
+        public async Task<EpicStatsModel> LoadStats(EpicNameModel epicNameModel)
             //returning 0 right now, need to pass a string as a parameter to convert username to their user id to check their stats.
         {
             HttpClient httpClient = new HttpClient();
-            FindUser findUser = new FindUser("BustaRhein");
-            EpicNameModel epicNameModel = await findUser.FindUserID();
-
             string url = $"https://fortniteapi.io/stats?account={epicNameModel.Account_id}";
             httpClient.DefaultRequestHeaders.Add("Authorization", "0e235bf6-1954f433-5e4caaf7-f6deb034");
             

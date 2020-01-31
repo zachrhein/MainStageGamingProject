@@ -14,6 +14,7 @@ namespace MainStageGamingProject.Models
     {
         //public Dictionary<string, Dictionary<string, string>> Global_Stats { get; set; }
         public Object Global_Stats { get; set; }
+        public string Name { get; set; }
         //public string Solo { get; set; }
         //public string Duo { get; set; }
         //public string Squad { get; set; }

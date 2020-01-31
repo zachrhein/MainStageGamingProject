@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using MainStageGamingProject.ApiModels;
 using MainStageGamingProject.Models;
+using MainStageGamingProject.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -27,20 +28,30 @@ namespace MainStageGamingProject.Controllers
             
             return await fortniteUser.FindUserID();
         }
-
-        public async Task<IActionResult> Stats()
+        public IActionResult SearchUsername()
         {
-            EpicStatsModel epicStatsModel = await ShowStats();
-            ViewBag.statistics = epicStatsModel.Global_Stats;
+            ViewBag.name = "";
             return View();
         }
-        public async Task<EpicStatsModel> ShowStats()
+        [HttpPost]
+        public async Task<IActionResult> SearchUsername(SearchViewModel searchViewModel)
         {
-            StatsProcessor statsProcessor = new StatsProcessor();
-
-            return await statsProcessor.LoadStats();
+            if (ModelState.IsValid)
+            {
+                FindUser findUser = new FindUser(searchViewModel.Username);
+                EpicNameModel epicNameModel = await findUser.FindUserID();
+                StatsProcessor statsProcessor = new StatsProcessor();
+                EpicStatsModel epicStatsModel = await statsProcessor.LoadStats(epicNameModel);
+                if (epicStatsModel.Global_Stats != null & epicStatsModel.Name != null)
+                {
+                    ViewBag.name = epicStatsModel.Name;
+                    ViewBag.statistics = epicStatsModel.Global_Stats;
+                    return View();
+                }
+                ViewBag.name = "User does not exist.";
+            }
+            return View();
         }
-
 
     }
 }
