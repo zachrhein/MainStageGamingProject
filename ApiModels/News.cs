@@ -31,6 +31,28 @@ namespace MainStageGamingProject.ApiModels
                 return new NewsModel();
 
             }
+
+        }
+        public async Task<ItemShop> ShowItemShop()
+        {
+            HttpClient httpClient = new HttpClient();
+            string url = $"https://fortniteapi.io/shop?lang=en";
+            httpClient.DefaultRequestHeaders.Add("Authorization", "0e235bf6-1954f433-5e4caaf7-f6deb034");
+
+            try
+            {
+                HttpResponseMessage response = await httpClient.GetAsync(url);
+                response.EnsureSuccessStatusCode();
+
+                ItemShop itemShop = await response.Content.ReadAsAsync<ItemShop>();
+
+                return itemShop;
+            }
+            catch (HttpRequestException)
+            {
+                return new ItemShop();
+
+            }
         }
     }
 }

@@ -1,0 +1,10 @@
+﻿@foreach (var item in ViewBag.featured)
+{
+    <img style="max-width: 25%; height: auto;" src="@item.full_background" />
+    <h2>@item.name</h2>
+    <h5>@item.description</h5>
+    <p>Rarity: @item.rarity</p>
+    <p>VBucks: @item.price</p>
+    <p>Released On: @item.releaseDate</p>
+    <p>Last Appeared: @item.lastAppearance</p>
+}

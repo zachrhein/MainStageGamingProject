@@ -24,5 +24,17 @@ namespace MainStageGamingProject.Controllers
             News news = new News();
             return await news.ShowNews();
         }
+
+        public async Task<IActionResult> ItemShop()
+        {
+            ItemShop itemShop = await AwaitShop();
+            ViewBag.featured = itemShop.Featured;
+            return View();
+        }
+        public async Task<ItemShop> AwaitShop()
+        {
+            News itemShop = new News();
+            return await itemShop.ShowItemShop();
+        }
     }
 }
